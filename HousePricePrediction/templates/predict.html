@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Predict House Price</title>
+    <style>
+        body {
+            background-image: url("{% static 'background2.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            display: inline-block;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+        input[type="text"], input[type="submit"] {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Spinner CSS */
+        .spinner {
+            margin-top: 20px;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid black;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            display: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <script>
+        function showSpinner() {
+            document.getElementById('spinner').style.display = 'block';
+            document.getElementById('submit-btn').disabled = true;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Enter Details</h1>
+        <form action="{% url 'result' %}" method="get" onsubmit="showSpinner()">
+            <input type="text" name="n1" placeholder="Avg. Area Income" required><br>
+            <input type="text" name="n2" placeholder="Avg. Area House Age" required><br>
+            <input type="text" name="n3" placeholder="Avg. Area Number of Rooms" required><br>
+            <input type="text" name="n4" placeholder="Avg. Area Number of Bedrooms" required><br>
+            <input type="text" name="n5" placeholder="Avg. Area Population" required><br>
+            <input id="submit-btn" type="submit" value="Predict">
+        </form>
+
+        <div id="spinner" class="spinner"></div>
+    </div>
+</body>
+</html>
