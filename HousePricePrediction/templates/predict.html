@@ -52,6 +52,21 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            color: #fff;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
     </style>
 
     <script>
@@ -67,15 +82,19 @@
     <div class="form-container">
         <h1>Enter Details</h1>
         <form action="{% url 'result' %}" method="get" onsubmit="showSpinner()">
-            <input type="text" name="n1" placeholder="Avg. Area Income" required><br>
-            <input type="text" name="n2" placeholder="Avg. Area House Age" required><br>
-            <input type="text" name="n3" placeholder="Avg. Area Number of Rooms" required><br>
-            <input type="text" name="n4" placeholder="Avg. Area Number of Bedrooms" required><br>
-            <input type="text" name="n5" placeholder="Avg. Area Population" required><br>
+            <input type="text" name="n1" placeholder="Number of Bedrooms" required><br>
+            <input type="text" name="n2" placeholder="Number of Bathrooms" required><br>
+            <input type="text" name="n3" placeholder="Area" required><br>
+            <input type="text" name="n4" placeholder="Number of Floors" required><br>
+            <input type="text" name="n5" placeholder="Built Year" required><br>
             <input id="submit-btn" type="submit" value="Predict">
         </form>
 
         <div id="spinner" class="spinner"></div>
+    </div>
+
+    <div class="footer">
+        Developed by Bhanu Pratap Singh
     </div>
 </body>
 </html>

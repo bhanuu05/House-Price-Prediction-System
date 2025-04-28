@@ -94,6 +94,16 @@
                 font-size: 16px;
             }
         }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            color: #fff;
+            animation: fadeInUp 2s ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -103,6 +113,9 @@
         <form action="{% url 'predict' %}">
             <input type="submit" value="Start Prediction">
         </form>
+    </div>
+    <div class="footer">
+        Developed by Bhanu Pratap Singh
     </div>
 </body>
 </html>
